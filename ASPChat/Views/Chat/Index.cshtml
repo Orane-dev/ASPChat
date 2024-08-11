@@ -1,0 +1,52 @@
+﻿@using ASPChat.DAL.Models;
+@model IEnumerable<ChatModel>
+@{
+    ViewBag.Title = "Chat";
+    Layout = "_Layout";
+}
+<div class="wrapper mt-4">
+    <div class="list-group-container shadow">
+        <h2 style="text-align:center;">Chats</h2>
+
+        <div class="list-group overflow-auto shadow" id="chat-list">
+            @foreach (var chat in Model)
+            {
+                <a href="#" class="list-group-item list-group-item-action" data-chatname="@chat.CompanionEmail" data-chatid="@chat.ChatId">
+                    @chat.CompanionEmail
+                    @if (chat.UnreadMessageCount > 0)
+                    {
+                        <span class="badge bg-danger">@chat.UnreadMessageCount</span>
+                    }
+                </a>
+            }
+        </div>
+        <div class="container shadow">
+            <input class="form-control" type="text" id="search-input" placeholder="Search..." />
+             <div class="search-result" id="search">
+            <ul id="search-list"></ul>
+             </div> 
+        </div>
+    </div>
+    
+    <div class="container1">
+        <div class="chat-window shadow">
+            <div class="chat-header">
+                <h4 id="chat-title"></h4>
+            </div>
+            <div class="chat-date" id="chat-date">
+            </div>
+            <div class="chat-area shadow" id="chat-content">
+                <div class="stub" id="chat-stub">Select Chat</div>
+            </div>
+            <div class="chat-bottom">
+                <textarea type="text" class="form-control" id="message-box" placeholder="Type a message..." style="resize:none; white-space:pre-wrap"></textarea>
+                <button class="btn btn-success" id="send-button" disabled="disabled">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+<script type="module" src="~/js/Chat/ChatEventListeners.js"></script>
+<script type="module" src="~/js/Chat/ChatFunc.js"></script>
+<script type="module" src="~/js/Chat/ChatSignalR.js"></script>

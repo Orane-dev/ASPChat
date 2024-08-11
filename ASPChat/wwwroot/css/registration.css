@@ -1,0 +1,11 @@
+﻿.registration-form {
+    padding: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+    .registration-form input, button {
+        min-width: 300px;
+    }

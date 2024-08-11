@@ -1,0 +1,52 @@
+﻿@model ASPChat.Models.LoginViewModel;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Login";
+}
+
+<div class="registration-form">
+    <form method="post">
+        <div class="mb-2">
+            <lable>Email</lable>
+            <input class="form-control" type="text" name="email" value="@Model.Email" />
+            <div class="text-danger" @Html.ValidationMessageFor(m => m.Email)</div>
+        </div>
+        <div class="mb-2">
+            <label>Password</label>
+            <input class="form-control" type="password" name="password" value="" />
+            <div class="text-danger" @Html.ValidationMessageFor(m => m.Password)</div>
+        </div>
+        <button class="btn btn-success mb-2" type="submit">Sign in</button>
+        <div>
+            <label class="or-divider mb-2">No account?</label>
+        </div>
+        
+    </form>
+    <div>
+        <button class="btn btn-warning" onclick="window.location.href='/Register'">Sign up</button>
+    </div>
+</div>
+<style>
+    .or-divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+        .or-divider::before, .or-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #000;
+        }
+
+        .or-divider:not(:empty)::before {
+            margin-right: .25em;
+        }
+
+        .or-divider:not(:empty)::after {
+            margin-left: .25em;
+        }
+</style>
+
+

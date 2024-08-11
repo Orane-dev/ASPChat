@@ -1,0 +1,34 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.topnav {
+    background-color: seagreen;
+    overflow: hidden;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+    .topnav a {
+        padding: 10px;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        font-size: 22px;
+    }
+
+        .topnav a:hover {
+            background-color: darkgreen;
+            color: white;
+        }
+
+    .topnav .form-control {
+        margin-left: auto;
+        margin-right: 2%;
+        width: 200px;
+    }

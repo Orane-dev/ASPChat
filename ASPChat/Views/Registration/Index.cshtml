@@ -1,0 +1,38 @@
+﻿@model ASPChat.Models.RegistrationViewModel
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "_Layout";
+}
+
+<div class="registration-form">
+    <form  method="post">
+        <div class="mb-2">
+             <lable>Email</lable>
+             <input class="form-control" type="text" name="email" value="@Model.Email" />
+            <div class="text-danger">@Html.ValidationMessageFor(m => m.Email)</div>
+         </div>
+        <div class="mb-2">
+             <label>Password</label>
+             <input class="form-control" type="password" name="password" value="" />
+            <div class="text-danger">@Html.ValidationMessageFor(m => m.Password)</div>
+         </div>
+
+        <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#additionalFields" aria-expanded="false" aria-controls="additionalFields">
+            <i class="fas fa-chevron-down" style="color: #119739"></i>
+        </button>
+
+        <div class="collapse" id="additionalFields">
+            <div class="mb-2">
+                <label>First Name</label>
+                <input class="form-control" type="text" name="firstName" value="@Model.FirstName"/>
+            </div>
+            <div class="mb-2">
+                <label>Last Name</label>
+                <input class="form-control" type="text" name="lastName" value="@Model.LastName"/>
+            </div>
+        </div>
+        <div><button class="btn btn-success" type="submit">Sign up</button></div>
+         
+    </form>
+</div>
